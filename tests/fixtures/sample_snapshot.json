@@ -1,10 +1,14 @@
 {
+  "meta": {
+    "leaderboard": "text",
+    "source_url": "https://arena.ai/leaderboard/text",
+    "last_updated": "Jun 10, 2026",
+    "model_count": 4
+  },
   "models": [
-    { "model": "claude-3.5-sonnet-20241022", "score": 1350, "url": "https://lmarena.ai" },
-    { "model": "gpt-4o-2024-11-20", "score": 1365, "url": "https://lmarena.ai" },
-    { "model": "gemini-1.5-pro-002", "score": 1340, "url": "https://lmarena.ai" },
-    { "model": "claude-3-opus", "score": 1290, "url": "https://lmarena.ai" },
-    { "model": "mistral-large-2407", "score": 1250, "url": "https://lmarena.ai" },
-    { "model": "some-random-model-xyz", "score": 1400, "url": "https://lmarena.ai" }
+    { "rank": 1, "model": "claude-fable-5",  "vendor": "Anthropic", "license": "proprietary", "score": 1510, "ci": 11, "votes": 2883 },
+    { "rank": 2, "model": "claude-opus-4-6", "vendor": "Anthropic", "license": "proprietary", "score": 1498, "ci": 4,  "votes": 45808 },
+    { "rank": 3, "model": "glm-5.1",         "vendor": "Z.ai",      "license": "open",        "score": 1475, "ci": 6,  "votes": 9000 },
+    { "rank": 4, "model": "mystery-model",   "vendor": "NoSuchLab", "license": "open",        "score": 1600, "ci": 5,  "votes": 100 }
   ]
 }

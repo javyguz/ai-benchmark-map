@@ -3,6 +3,17 @@
 Mapa mundial interactivo que muestra labs de IA por ciudad sede, con su modelo
 principal y score de benchmark. Sitio estático, datos refrescados a diario.
 
+## Fuente de datos
+
+Los scores vienen del leaderboard público **Arena AI** vía el repo
+[`oolong-tea-2026/arena-ai-leaderboards`](https://github.com/oolong-tea-2026/arena-ai-leaderboards),
+que publica un snapshot diario en `data/<YYYY-MM-DD>/text.json` (categoría de modelos
+de texto). Cada entrada trae `model`, `vendor`, `license` y `score`.
+
+`scripts/build_data.py` busca el snapshot más reciente, toma el modelo de mayor score
+por vendor, y lo cruza con la tabla de sedes `data/orgs.json` (geografía + logo) para
+generar `data/data.json`, que es lo que consume la web.
+
 ## Desarrollo local
 
 ```bash
@@ -19,15 +30,18 @@ pytest -v
 
 ## Añadir una organización
 
-Editar `data/orgs.json`: añadir una entrada con `city`, `country`, `lat`, `lon`,
-`logo`, `license` (`open`|`proprietary`) y `aliases` (substrings del nombre de modelo
-en el leaderboard). Volver a correr `python scripts/build_data.py`.
+El matching es por **nombre de vendor** (el campo `vendor` del leaderboard). Para que
+un vendor aparezca en el mapa, añade una entrada en `data/orgs.json` cuya **clave sea
+exactamente el nombre del vendor** (p. ej. `"Google"`, `"Z.ai"`, `"Bytedance"`) con
+`city`, `country`, `lat`, `lon` y `logo`. La licencia y el score se toman del
+leaderboard, no de aquí. Vuelve a correr `python scripts/build_data.py`.
 
-Los modelos que el script no logre mapear se imprimen como `UNMATCHED:` en stderr;
-añadir sus alias a la org correspondiente.
+Los vendors del leaderboard que no tengan sede en `orgs.json` se imprimen como
+`UNMATCHED VENDOR:` en stderr al correr el script — añade su entrada para incluirlos.
 
 ## Despliegue (GitHub Pages)
 
-1. Push del repo a GitHub.
+1. Push del repo a GitHub (rama `master`).
 2. Settings → Pages → Source: "GitHub Actions".
-3. El workflow `.github/workflows/update.yml` refresca los datos a diario y despliega.
+3. El workflow `.github/workflows/update.yml` baja el snapshot más reciente, refresca
+   `data/data.json` a diario (06:00 UTC) y despliega a Pages.

@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 6 * * *"   # diario 06:00 UTC
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,8 @@ jobs:
 
       - name: Refrescar data.json
         run: python scripts/build_data.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commitear data.json si cambió
         run: |
