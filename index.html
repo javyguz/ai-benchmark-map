@@ -3,27 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Benchmark Map</title>
+  <title>AI Benchmark Map · Leaderboard geográfico de modelos de IA</title>
+  <link rel="preconnect" href="https://basemaps.cartocdn.com" />
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>AI Benchmark Map</h1>
-    <p id="updated">Cargando…</p>
-  </header>
-  <aside id="filters">
-    <label>País <select id="filter-country"><option value="">Todos</option></select></label>
-    <label>Licencia
-      <select id="filter-license">
-        <option value="">Todas</option>
-        <option value="open">Open</option>
-        <option value="proprietary">Propietario</option>
-      </select>
-    </label>
-  </aside>
-  <div id="map"></div>
+  <div class="app">
+    <!-- ================= TOP BAR ================= -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AI Benchmark Map</h1>
+          <p>Leaderboard geográfico de modelos de IA</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+        <span class="updated" id="updated">Cargando…</span>
+      </div>
+    </header>
+
+    <!-- ================= DASHBOARD ================= -->
+    <main class="dashboard">
+      <!-- MAP -->
+      <section class="map-wrap">
+        <div id="map"></div>
+        <div class="legend" aria-hidden="true">
+          <span class="legend-item"><i class="dot prop"></i>Propietario</span>
+          <span class="legend-item"><i class="dot open"></i>Open source</span>
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- KPIs -->
+        <div class="kpi-grid" id="kpis"></div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="filter-search" placeholder="Buscar modelo o empresa…" autocomplete="off" />
+          </div>
+          <div class="filter-row">
+            <select id="filter-country" aria-label="Filtrar por país">
+              <option value="">🌍 Todos los países</option>
+            </select>
+            <div class="segmented" id="filter-license" role="group" aria-label="Filtrar por licencia">
+              <button class="seg active" data-val="">Todos</button>
+              <button class="seg" data-val="open">Open</button>
+              <button class="seg" data-val="proprietary">Propio</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="ranking" role="tab">🏆 Ranking</button>
+          <button class="tab" data-tab="chart" role="tab">📊 Benchmarks</button>
+        </div>
+
+        <!-- Tab panels -->
+        <div class="panel-body">
+          <div class="tab-panel active" data-panel="ranking">
+            <ol class="leaderboard" id="leaderboard"></ol>
+            <p class="empty-state" id="empty-state" hidden>Sin resultados para este filtro.</p>
+          </div>
+          <div class="tab-panel" data-panel="chart">
+            <div id="chart"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

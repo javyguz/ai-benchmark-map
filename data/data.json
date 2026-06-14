@@ -15,6 +15,30 @@
       "source_url": "https://lmarena.ai"
     },
     {
+      "org": "Google DeepMind",
+      "city": "London",
+      "country": "UK",
+      "lat": 51.5336,
+      "lon": -0.1276,
+      "logo": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=64",
+      "license": "proprietary",
+      "model": "gemini-1.5-pro-002",
+      "score": 1358,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "xAI",
+      "city": "San Francisco",
+      "country": "USA",
+      "lat": 37.77,
+      "lon": -122.4,
+      "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
+      "license": "proprietary",
+      "model": "grok-2-1212",
+      "score": 1352,
+      "source_url": "https://lmarena.ai"
+    },
+    {
       "org": "Anthropic",
       "city": "San Francisco",
       "country": "USA",
@@ -27,15 +51,75 @@
       "source_url": "https://lmarena.ai"
     },
     {
-      "org": "Google DeepMind",
-      "city": "London",
-      "country": "UK",
-      "lat": 51.5336,
-      "lon": -0.1276,
-      "logo": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=64",
-      "license": "proprietary",
-      "model": "gemini-1.5-pro-002",
-      "score": 1340,
+      "org": "DeepSeek",
+      "city": "Hangzhou",
+      "country": "China",
+      "lat": 30.2741,
+      "lon": 120.1551,
+      "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+      "license": "open",
+      "model": "deepseek-v3",
+      "score": 1342,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Alibaba Qwen",
+      "city": "Hangzhou",
+      "country": "China",
+      "lat": 30.25,
+      "lon": 120.16,
+      "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+      "license": "open",
+      "model": "qwen2.5-72b-instruct",
+      "score": 1332,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Meta AI",
+      "city": "Menlo Park",
+      "country": "USA",
+      "lat": 37.4848,
+      "lon": -122.1484,
+      "logo": "https://www.google.com/s2/favicons?domain=ai.meta.com&sz=64",
+      "license": "open",
+      "model": "llama-3.1-405b-instruct",
+      "score": 1300,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Mistral AI",
+      "city": "Paris",
+      "country": "France",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "logo": "https://www.google.com/s2/favicons?domain=mistral.ai&sz=64",
+      "license": "open",
+      "model": "mistral-large-2407",
+      "score": 1290,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "01.AI",
+      "city": "Beijing",
+      "country": "China",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "logo": "https://www.google.com/s2/favicons?domain=01.ai&sz=64",
+      "license": "open",
+      "model": "yi-lightning",
+      "score": 1265,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Cohere",
+      "city": "Toronto",
+      "country": "Canada",
+      "lat": 43.6532,
+      "lon": -79.3832,
+      "logo": "https://www.google.com/s2/favicons?domain=cohere.com&sz=64",
+      "license": "open",
+      "model": "command-r-plus-08-2024",
+      "score": 1248,
       "source_url": "https://lmarena.ai"
     }
   ]
