@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Benchmark Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>AI Benchmark Map</h1>
+    <p id="updated">Cargando…</p>
+  </header>
+  <aside id="filters">
+    <label>País <select id="filter-country"><option value="">Todos</option></select></label>
+    <label>Licencia
+      <select id="filter-license">
+        <option value="">Todas</option>
+        <option value="open">Open</option>
+        <option value="proprietary">Propietario</option>
+      </select>
+    </label>
+  </aside>
+  <div id="map"></div>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+header { padding: 12px 16px; background: #0f172a; color: #fff; }
+header h1 { margin: 0; font-size: 20px; }
+header p { margin: 4px 0 0; font-size: 12px; color: #94a3b8; }
+#filters {
+  position: absolute; top: 70px; left: 12px; z-index: 1;
+  background: #fff; padding: 12px; border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2); display: flex; flex-direction: column; gap: 8px;
+}
+#filters label { font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
+#map { position: absolute; top: 58px; bottom: 0; left: 0; right: 0; }
+.popup-card { display: flex; gap: 8px; align-items: center; }
+.popup-card img { width: 32px; height: 32px; }
+.popup-card .model { font-weight: 600; }
+.popup-card .score { color: #2563eb; font-weight: 700; }
