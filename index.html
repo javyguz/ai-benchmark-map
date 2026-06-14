@@ -3,30 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Benchmark Map · Leaderboard geográfico de modelos de IA</title>
+  <title>AI Benchmark Map · Global tracking de modelos de IA</title>
   <link rel="preconnect" href="https://basemaps.cartocdn.com" />
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
-    <!-- ================= TOP BAR ================= -->
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1>AI Benchmark Map</h1>
-          <p>Leaderboard geográfico de modelos de IA</p>
-        </div>
+    <!-- ================= TITLE BAR ================= -->
+    <header class="titlebar">
+      <div class="title-main">
+        <h1>AI&nbsp;Benchmark&nbsp;Map</h1>
+        <span class="subtitle">Global tracking de modelos de inteligencia artificial por origen geográfico</span>
       </div>
-      <div class="topbar-right">
+      <div class="title-meta">
         <span class="live-badge"><span class="live-dot"></span>LIVE</span>
         <span class="updated" id="updated">Cargando…</span>
       </div>
@@ -34,21 +27,28 @@
 
     <!-- ================= DASHBOARD ================= -->
     <main class="dashboard">
-      <!-- MAP -->
+      <!-- LEFT RAIL: big totals + country breakdown -->
+      <aside class="rail rail-left">
+        <div class="totals" id="totals"></div>
+        <div class="breakdown">
+          <div class="rail-heading">Modelos por país</div>
+          <ul class="country-list" id="country-list"></ul>
+        </div>
+      </aside>
+
+      <!-- CENTER: map -->
       <section class="map-wrap">
         <div id="map"></div>
         <div class="legend" aria-hidden="true">
           <span class="legend-item"><i class="dot prop"></i>Propietario</span>
           <span class="legend-item"><i class="dot open"></i>Open source</span>
+          <span class="legend-sep"></span>
+          <span class="legend-item legend-scale"><i class="ring s"></i><i class="ring m"></i><i class="ring l"></i>Score</span>
         </div>
       </section>
 
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <!-- KPIs -->
-        <div class="kpi-grid" id="kpis"></div>
-
-        <!-- Filters -->
+      <!-- RIGHT RAIL: filters + ranking / chart -->
+      <aside class="rail rail-right">
         <div class="filters">
           <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -56,7 +56,7 @@
           </div>
           <div class="filter-row">
             <select id="filter-country" aria-label="Filtrar por país">
-              <option value="">🌍 Todos los países</option>
+              <option value="">Todos los países</option>
             </select>
             <div class="segmented" id="filter-license" role="group" aria-label="Filtrar por licencia">
               <button class="seg active" data-val="">Todos</button>
@@ -66,13 +66,11 @@
           </div>
         </div>
 
-        <!-- Tabs -->
         <div class="tabs" role="tablist">
-          <button class="tab active" data-tab="ranking" role="tab">🏆 Ranking</button>
-          <button class="tab" data-tab="chart" role="tab">📊 Benchmarks</button>
+          <button class="tab active" data-tab="ranking" role="tab">Ranking</button>
+          <button class="tab" data-tab="chart" role="tab">Benchmarks</button>
         </div>
 
-        <!-- Tab panels -->
         <div class="panel-body">
           <div class="tab-panel active" data-panel="ranking">
             <ol class="leaderboard" id="leaderboard"></ol>

@@ -1,5 +1,5 @@
 /* ============================================================
-   AI Benchmark Map — frontend
+   AI Benchmark Map — frontend (Johns Hopkins CSSE-inspired)
    ============================================================ */
 
 const LICENSE_LABEL = { open: "Open source", proprietary: "Propietario" };
@@ -9,6 +9,7 @@ const state = {
   rankByOrg: {},    // org -> ranking global (1-based)
   filtered: [],     // resultado de aplicar filtros
   markers: {},      // org -> { marker, el }
+  scoreRange: [0, 1],
   filters: { search: "", country: "", license: "" },
   tab: "ranking",
 };
@@ -31,6 +32,13 @@ function escapeHtml(s) {
   );
 }
 
+// Diámetro de la burbuja proporcional al score (símbolo proporcional, estilo JHU).
+function bubbleSize(score) {
+  const [min, max] = state.scoreRange;
+  const t = max > min ? (score - min) / (max - min) : 0.5;
+  return Math.round(16 + t * 40); // 16px..56px de diámetro
+}
+
 function popupHtml(o) {
   return `<div class="popup-card">
     <img src="${escapeHtml(o.logo)}" alt="${escapeHtml(o.org)}" />
@@ -47,23 +55,20 @@ function popupHtml(o) {
   </div>`;
 }
 
-/* ----------------------- MARKERS (creados una vez) ----------------------- */
+/* ----------------------- MARKERS (proportional bubbles) ----------------------- */
 function buildMarkers() {
   state.all.forEach((o) => {
-    const rank = state.rankByOrg[o.org];
+    const d = bubbleSize(o.score);
     const el = document.createElement("div");
     el.className = "marker";
 
-    const dot = document.createElement("div");
-    dot.className = "marker-dot " + o.license;
-    if (rank <= 3) {
-      dot.classList.add("top");
-      dot.dataset.rank = rank;
-    }
-    dot.innerHTML = `<img src="${escapeHtml(o.logo)}" alt="" />`;
-    el.appendChild(dot);
+    const bubble = document.createElement("div");
+    bubble.className = "bubble " + o.license;
+    bubble.style.width = d + "px";
+    bubble.style.height = d + "px";
+    el.appendChild(bubble);
 
-    const popup = new maplibregl.Popup({ offset: 20, closeButton: true }).setHTML(popupHtml(o));
+    const popup = new maplibregl.Popup({ offset: d / 2, closeButton: true }).setHTML(popupHtml(o));
     const marker = new maplibregl.Marker({ element: el }).setLngLat([o.lon, o.lat]).setPopup(popup).addTo(map);
 
     el.addEventListener("mouseenter", () => highlightRow(o.org, true));
@@ -80,41 +85,68 @@ function syncMarkerVisibility() {
   });
 }
 
-/* ----------------------- KPIs ----------------------- */
-function renderKPIs(orgs) {
+/* ----------------------- LEFT: TOTALS ----------------------- */
+function renderTotals(orgs) {
   const top = orgs.reduce((a, b) => (b.score > a.score ? b : a), orgs[0] || { score: 0, org: "—" });
   const countries = new Set(orgs.map((o) => o.country)).size;
   const openCount = orgs.filter((o) => o.license === "open").length;
   const openPct = orgs.length ? Math.round((openCount / orgs.length) * 100) : 0;
 
-  const cards = [
-    { label: "Modelos", value: orgs.length, sub: `${countries} países` },
-    { label: "Top score", value: top.score || "—", sub: escapeHtml(top.org || "—") },
-    { label: "Open source", value: openPct + "%", sub: `${openCount} de ${orgs.length}` },
-    { label: "Países", value: countries, sub: "representados" },
-  ];
-  document.getElementById("kpis").innerHTML = cards
+  document.getElementById("totals").innerHTML = `
+    <div class="total-block">
+      <div class="t-label">Modelos trackeados</div>
+      <div class="t-value">${orgs.length}</div>
+      <div class="t-sub">en ${countries} países</div>
+    </div>
+    <div class="total-block alt">
+      <div class="t-label">Top score</div>
+      <div class="t-value">${top.score || "—"}</div>
+      <div class="t-sub">${escapeHtml(top.org || "—")}</div>
+    </div>
+    <div class="total-block">
+      <div class="t-label">Open source</div>
+      <div class="t-value">${openPct}%</div>
+      <div class="t-sub">${openCount} de ${orgs.length} modelos</div>
+    </div>`;
+}
+
+/* ----------------------- LEFT: COUNTRY BREAKDOWN ----------------------- */
+function renderBreakdown(orgs) {
+  const byCountry = {};
+  orgs.forEach((o) => {
+    if (!byCountry[o.country]) byCountry[o.country] = { count: 0, best: 0 };
+    byCountry[o.country].count++;
+    byCountry[o.country].best = Math.max(byCountry[o.country].best, o.score);
+  });
+  const rows = Object.entries(byCountry).sort((a, b) =>
+    b[1].count - a[1].count || b[1].best - a[1].best
+  );
+  const maxCount = rows.length ? rows[0][1].count : 1;
+
+  document.getElementById("country-list").innerHTML = rows
     .map(
-      (c) => `<div class="kpi">
-        <div class="k-label">${c.label}</div>
-        <div class="k-value">${c.value}</div>
-        <div class="k-sub">${c.sub}</div>
-      </div>`
+      ([country, d]) => `<li class="country-row">
+        <span class="c-name">${escapeHtml(country)}</span>
+        <span class="c-meta">
+          <span class="c-count">${d.count}</span>
+          <span class="c-best">top ${d.best}</span>
+        </span>
+        <span class="country-bar" style="width:${(d.count / maxCount) * 100}%"></span>
+      </li>`
     )
     .join("");
 }
 
-/* ----------------------- LEADERBOARD ----------------------- */
+/* ----------------------- RIGHT: LEADERBOARD ----------------------- */
 function renderLeaderboard(orgs) {
   const lb = document.getElementById("leaderboard");
-  const empty = document.getElementById("empty-state");
-  empty.hidden = orgs.length > 0;
+  document.getElementById("empty-state").hidden = orgs.length > 0;
 
   lb.innerHTML = orgs
     .map((o) => {
       const rank = state.rankByOrg[o.org];
       return `<li class="lb-row r${rank}" data-org="${escapeHtml(o.org)}">
-        <span class="lb-rank">${rank <= 3 ? ["🥇", "🥈", "🥉"][rank - 1] : rank}</span>
+        <span class="lb-rank">${rank}</span>
         <span class="lb-logo"><img src="${escapeHtml(o.logo)}" alt="" /></span>
         <span class="lb-main">
           <span class="lb-org">${escapeHtml(o.org)}
@@ -151,39 +183,31 @@ function focusOrg(org) {
   if (m && !m.marker.getPopup().isOpen()) m.marker.togglePopup();
 }
 
-/* ----------------------- CHART (ECharts) ----------------------- */
+/* ----------------------- RIGHT: CHART (ECharts) ----------------------- */
 let chart = null;
 function renderChart(orgs) {
   const el = document.getElementById("chart");
   if (!chart) chart = echarts.init(el, null, { renderer: "canvas" });
-  const data = [...orgs].sort((a, b) => a.score - b.score); // asc para barras horizontales
+  const data = [...orgs].sort((a, b) => a.score - b.score);
   const min = Math.min(...orgs.map((o) => o.score), 1200) - 20;
 
   chart.setOption({
     grid: { left: 8, right: 46, top: 8, bottom: 8, containLabel: true },
     tooltip: {
-      trigger: "axis",
-      axisPointer: { type: "shadow" },
-      backgroundColor: "#121830",
-      borderColor: "rgba(255,255,255,0.14)",
-      textStyle: { color: "#e8ecf6" },
-      formatter: (p) => {
-        const d = p[0];
-        return `<b>${d.name}</b><br/>Score: <b>${d.value}</b>`;
-      },
+      trigger: "axis", axisPointer: { type: "shadow" },
+      backgroundColor: "#000", borderColor: "#d62728", textStyle: { color: "#e9e9e9" },
+      formatter: (p) => `<b>${p[0].name}</b><br/>Score: <b>${p[0].value}</b>`,
     },
     xAxis: {
-      type: "value",
-      min,
-      axisLabel: { color: "#5f6b8a", fontSize: 10 },
-      splitLine: { lineStyle: { color: "rgba(255,255,255,0.05)" } },
+      type: "value", min,
+      axisLabel: { color: "#6a6a6a", fontSize: 10, fontFamily: "DM Mono" },
+      splitLine: { lineStyle: { color: "#1f1f1f" } },
       axisLine: { show: false },
     },
     yAxis: {
-      type: "category",
-      data: data.map((o) => o.org),
-      axisLabel: { color: "#9aa6c4", fontSize: 11 },
-      axisLine: { lineStyle: { color: "rgba(255,255,255,0.1)" } },
+      type: "category", data: data.map((o) => o.org),
+      axisLabel: { color: "#9a9a9a", fontSize: 11, fontFamily: "DM Mono" },
+      axisLine: { lineStyle: { color: "#2a2a2a" } },
       axisTick: { show: false },
     },
     series: [
@@ -192,15 +216,16 @@ function renderChart(orgs) {
         data: data.map((o) => ({
           value: o.score,
           itemStyle: {
-            borderRadius: [0, 5, 5, 0],
-            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-              { offset: 0, color: o.license === "open" ? "#0d9488" : "#4f46e5" },
-              { offset: 1, color: o.license === "open" ? "#10b981" : "#a855f7" },
-            ]),
+            borderRadius: [0, 3, 3, 0],
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0,
+              o.license === "open"
+                ? [{ offset: 0, color: "#2a6f9e" }, { offset: 1, color: "#4aa3df" }]
+                : [{ offset: 0, color: "#8a1a1b" }, { offset: 1, color: "#ff4136" }]
+            ),
           },
         })),
         barWidth: "58%",
-        label: { show: true, position: "right", color: "#e8ecf6", fontSize: 11, fontWeight: 600 },
+        label: { show: true, position: "right", color: "#e9e9e9", fontSize: 11, fontFamily: "Oswald", fontWeight: 600 },
       },
     ],
   });
@@ -219,7 +244,8 @@ function applyFilters() {
     return true;
   });
 
-  renderKPIs(state.filtered);
+  renderTotals(state.filtered);
+  renderBreakdown(state.filtered);
   renderLeaderboard(state.filtered);
   renderChart(state.filtered);
   syncMarkerVisibility();
@@ -270,10 +296,11 @@ fetch("data/data.json")
   .then((data) => {
     state.all = (data.orgs || []).slice().sort((a, b) => b.score - a.score);
     state.all.forEach((o, i) => (state.rankByOrg[o.org] = i + 1));
+    const scores = state.all.map((o) => o.score);
+    state.scoreRange = [Math.min(...scores), Math.max(...scores)];
 
     const date = (data.generated_at || "").slice(0, 10) || "?";
-    document.getElementById("updated").textContent =
-      `${state.all.length} modelos · ${date}`;
+    document.getElementById("updated").textContent = `${state.all.length} modelos · ${date}`;
 
     populateCountryFilter(state.all);
     wireFilters();
