@@ -1,5 +1,7 @@
 """Genera data/data.json cruzando un snapshot de leaderboard con orgs.json."""
 
+import datetime
+
 
 def match_org(model_name, orgs):
     """Devuelve el nombre de la organización cuyo alias aparece en model_name, o None."""
@@ -38,3 +40,16 @@ def build_orgs(snapshot, orgs):
         })
     rows.sort(key=lambda r: r["score"], reverse=True)
     return rows
+
+
+def build_payload(snapshot, orgs, previous=None):
+    """Construye el payload completo; si no hay filas y hay previo, devuelve el previo."""
+    rows = build_orgs(snapshot, orgs)
+    if not rows and previous is not None:
+        return previous
+    return {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc)
+            .strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "source": "arena-ai-leaderboards",
+        "orgs": rows,
+    }

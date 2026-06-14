@@ -55,3 +55,22 @@ def test_build_orgs_ignores_unknown_models():
     snapshot = {"models": [{"model": "unknown-xyz", "score": 9999, "url": "u"}]}
     result = build_data.build_orgs(snapshot, orgs)
     assert result == []
+
+
+def test_build_payload_uses_new_data_when_present():
+    orgs = {"Anthropic": {"aliases": ["claude"], "city": "SF", "country": "USA",
+                          "lat": 1.0, "lon": 2.0, "logo": "a.png", "license": "proprietary"}}
+    snapshot = {"models": [{"model": "claude-x", "score": 1300, "url": "u"}]}
+    payload = build_data.build_payload(snapshot, orgs, previous=None)
+    assert len(payload["orgs"]) == 1
+    assert "generated_at" in payload
+
+
+def test_build_payload_falls_back_to_previous_when_empty():
+    orgs = {"Anthropic": {"aliases": ["claude"], "city": "SF", "country": "USA",
+                          "lat": 1.0, "lon": 2.0, "logo": "a.png", "license": "proprietary"}}
+    empty_snapshot = {"models": []}
+    previous = {"generated_at": "2020-01-01T00:00:00Z", "source": "x",
+                "orgs": [{"org": "Anthropic"}]}
+    payload = build_data.build_payload(empty_snapshot, orgs, previous=previous)
+    assert payload == previous
