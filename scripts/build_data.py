@@ -9,3 +9,32 @@ def match_org(model_name, orgs):
             if alias.lower() in name:
                 return org
     return None
+
+
+def build_orgs(snapshot, orgs):
+    """Cruza el snapshot con orgs; una fila por org con su modelo de mayor score."""
+    best = {}  # org -> entrada del snapshot con mayor score
+    for entry in snapshot.get("models", []):
+        org = match_org(entry["model"], orgs)
+        if org is None:
+            continue
+        if org not in best or entry["score"] > best[org]["score"]:
+            best[org] = entry
+
+    rows = []
+    for org, entry in best.items():
+        meta = orgs[org]
+        rows.append({
+            "org": org,
+            "city": meta["city"],
+            "country": meta["country"],
+            "lat": meta["lat"],
+            "lon": meta["lon"],
+            "logo": meta["logo"],
+            "license": meta["license"],
+            "model": entry["model"],
+            "score": entry["score"],
+            "source_url": entry.get("url", ""),
+        })
+    rows.sort(key=lambda r: r["score"], reverse=True)
+    return rows
