@@ -8,7 +8,7 @@ principal y score de benchmark. Sitio estático, datos refrescados a diario.
 ```bash
 pip install -r requirements.txt
 python scripts/build_data.py     # genera data/data.json
-python -m http.server 8000       # abrir http://localhost:8000
+python -m http.server 8080       # abrir http://localhost:8080
 ```
 
 ## Tests
