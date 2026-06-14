@@ -1,0 +1,62 @@
+{
+  "Anthropic": {
+    "city": "San Francisco", "country": "USA", "lat": 37.7749, "lon": -122.4194,
+    "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64",
+    "license": "proprietary",
+    "aliases": ["claude"]
+  },
+  "OpenAI": {
+    "city": "San Francisco", "country": "USA", "lat": 37.7790, "lon": -122.4170,
+    "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
+    "license": "proprietary",
+    "aliases": ["gpt", "o1", "o3", "o4", "chatgpt"]
+  },
+  "Google DeepMind": {
+    "city": "London", "country": "UK", "lat": 51.5336, "lon": -0.1276,
+    "logo": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=64",
+    "license": "proprietary",
+    "aliases": ["gemini", "gemma", "palm"]
+  },
+  "Mistral AI": {
+    "city": "Paris", "country": "France", "lat": 48.8566, "lon": 2.3522,
+    "logo": "https://www.google.com/s2/favicons?domain=mistral.ai&sz=64",
+    "license": "open",
+    "aliases": ["mistral", "mixtral", "magistral", "codestral"]
+  },
+  "Meta AI": {
+    "city": "Menlo Park", "country": "USA", "lat": 37.4848, "lon": -122.1484,
+    "logo": "https://www.google.com/s2/favicons?domain=ai.meta.com&sz=64",
+    "license": "open",
+    "aliases": ["llama"]
+  },
+  "DeepSeek": {
+    "city": "Hangzhou", "country": "China", "lat": 30.2741, "lon": 120.1551,
+    "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+    "license": "open",
+    "aliases": ["deepseek"]
+  },
+  "Alibaba Qwen": {
+    "city": "Hangzhou", "country": "China", "lat": 30.2500, "lon": 120.1600,
+    "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+    "license": "open",
+    "aliases": ["qwen", "qwq"]
+  },
+  "xAI": {
+    "city": "San Francisco", "country": "USA", "lat": 37.7700, "lon": -122.4000,
+    "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
+    "license": "proprietary",
+    "aliases": ["grok"]
+  },
+  "Cohere": {
+    "city": "Toronto", "country": "Canada", "lat": 43.6532, "lon": -79.3832,
+    "logo": "https://www.google.com/s2/favicons?domain=cohere.com&sz=64",
+    "license": "open",
+    "aliases": ["command", "aya"]
+  },
+  "01.AI": {
+    "city": "Beijing", "country": "China", "lat": 39.9042, "lon": 116.4074,
+    "logo": "https://www.google.com/s2/favicons?domain=01.ai&sz=64",
+    "license": "open",
+    "aliases": ["yi-"]
+  }
+}

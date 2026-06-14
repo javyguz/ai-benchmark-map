@@ -1,0 +1,10 @@
+{
+  "models": [
+    { "model": "claude-3.5-sonnet-20241022", "score": 1350, "url": "https://lmarena.ai" },
+    { "model": "gpt-4o-2024-11-20", "score": 1365, "url": "https://lmarena.ai" },
+    { "model": "gemini-1.5-pro-002", "score": 1340, "url": "https://lmarena.ai" },
+    { "model": "claude-3-opus", "score": 1290, "url": "https://lmarena.ai" },
+    { "model": "mistral-large-2407", "score": 1250, "url": "https://lmarena.ai" },
+    { "model": "some-random-model-xyz", "score": 1400, "url": "https://lmarena.ai" }
+  ]
+}
