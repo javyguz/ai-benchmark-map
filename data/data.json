@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-06-14T00:00:00Z",
+  "source": "manual-seed",
+  "orgs": [
+    {
+      "org": "OpenAI",
+      "city": "San Francisco",
+      "country": "USA",
+      "lat": 37.779,
+      "lon": -122.417,
+      "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
+      "license": "proprietary",
+      "model": "gpt-4o-2024-11-20",
+      "score": 1365,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Anthropic",
+      "city": "San Francisco",
+      "country": "USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64",
+      "license": "proprietary",
+      "model": "claude-3.5-sonnet-20241022",
+      "score": 1350,
+      "source_url": "https://lmarena.ai"
+    },
+    {
+      "org": "Google DeepMind",
+      "city": "London",
+      "country": "UK",
+      "lat": 51.5336,
+      "lon": -0.1276,
+      "logo": "https://www.google.com/s2/favicons?domain=deepmind.google&sz=64",
+      "license": "proprietary",
+      "model": "gemini-1.5-pro-002",
+      "score": 1340,
+      "source_url": "https://lmarena.ai"
+    }
+  ]
+}

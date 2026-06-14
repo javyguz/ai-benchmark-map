@@ -74,3 +74,9 @@ def test_build_payload_falls_back_to_previous_when_empty():
                 "orgs": [{"org": "Anthropic"}]}
     payload = build_data.build_payload(empty_snapshot, orgs, previous=previous)
     assert payload == previous
+
+
+def test_normalize_snapshot_handles_list_and_alt_keys():
+    raw = [{"Model": "claude-x", "Arena Score": "1300", "url": "u"}]
+    norm = build_data.normalize_snapshot(raw)
+    assert norm["models"] == [{"model": "claude-x", "score": 1300.0, "url": "u"}]
