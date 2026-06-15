@@ -96,17 +96,21 @@ def test_build_orgs_ignores_unknown_vendors():
 
 
 # --------------------------------------------------------------------------- #
-# build_payload (resiliencia)
+# build_payload (multi-categoría + resiliencia)
 # --------------------------------------------------------------------------- #
-def test_build_payload_uses_new_data_and_includes_date():
-    snapshot = build_data.normalize_snapshot(load_fixture())
-    payload = build_data.build_payload(snapshot, ORGS, previous=None, date="2026-06-14")
-    assert len(payload["orgs"]) == 2
+def test_build_payload_includes_only_nonempty_categories_in_order():
+    rows_by_cat = {"code": [{"org": "A"}], "text": [{"org": "B"}], "vision": []}
+    payload = build_data.build_payload(rows_by_cat, "2026-06-14", previous=None)
     assert payload["snapshot_date"] == "2026-06-14"
     assert "generated_at" in payload
+    # 'text' va antes que 'code' (orden de CATEGORIES); 'vision' vacío se excluye.
+    assert [c["id"] for c in payload["categories"]] == ["text", "code"]
+    assert payload["categories"][0] == {"id": "text", "label": "Texto", "count": 1}
+    assert set(payload["data"].keys()) == {"text", "code"}
+    assert "vision" not in payload["data"]
 
 
-def test_build_payload_falls_back_to_previous_when_empty():
-    previous = {"generated_at": "2020-01-01T00:00:00Z", "source": "x", "orgs": [{"org": "Old"}]}
-    payload = build_data.build_payload({"models": []}, ORGS, previous=previous, date="2026-06-14")
+def test_build_payload_falls_back_to_previous_when_all_empty():
+    previous = {"generated_at": "2020-01-01T00:00:00Z", "data": {"text": [{"org": "Old"}]}}
+    payload = build_data.build_payload({"text": [], "code": []}, "2026-06-14", previous=previous)
     assert payload == previous

@@ -16,9 +16,25 @@ import sys
 import urllib.request
 
 REPO = "oolong-tea-2026/arena-ai-leaderboards"
-LEADERBOARD = "text"  # leaderboard de modelos de texto
 API_DATA_URL = f"https://api.github.com/repos/{REPO}/contents/data"
 RAW_BASE = f"https://raw.githubusercontent.com/{REPO}/main/data"
+
+# Categorías de leaderboard a publicar (id en el repo, etiqueta para la UI).
+# El orden define el orden del selector.
+# Nota: la categoría "agent" se excluye a propósito — su leaderboard trae score=null
+# (no usa puntajes Elo) y todo el dashboard es score-based.
+CATEGORIES = [
+    ("text", "Texto"),
+    ("code", "Código"),
+    ("vision", "Visión"),
+    ("document", "Documentos"),
+    ("search", "Búsqueda"),
+    ("text-to-image", "Texto → Imagen"),
+    ("image-edit", "Edición de imagen"),
+    ("text-to-video", "Texto → Video"),
+    ("image-to-video", "Imagen → Video"),
+    ("video-edit", "Edición de video"),
+]
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORGS_PATH = os.path.join(ROOT, "data", "orgs.json")
@@ -118,36 +134,57 @@ def build_orgs(snapshot, orgs):
     return rows
 
 
-def build_payload(snapshot, orgs, previous=None, date=None):
-    """Payload final; si no hay filas y hay previo, conserva el previo (resiliencia)."""
-    rows = build_orgs(snapshot, orgs)
-    if not rows and previous is not None:
+def build_payload(rows_by_cat, date, previous=None):
+    """Payload multi-categoría. Si todas las categorías quedan vacías y hay previo,
+    conserva el previo (resiliencia). Solo incluye categorías con al menos una fila."""
+    total = sum(len(rows) for rows in rows_by_cat.values())
+    if total == 0 and previous is not None:
         return previous
+
+    categories = [
+        {"id": cid, "label": label, "count": len(rows_by_cat.get(cid, []))}
+        for cid, label in CATEGORIES
+        if rows_by_cat.get(cid)
+    ]
+    data = {cid: rows_by_cat[cid] for cid, _ in CATEGORIES if rows_by_cat.get(cid)}
     return {
         "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime(
             "%Y-%m-%dT%H:%M:%SZ"
         ),
-        "source": f"arena-ai-leaderboards/{LEADERBOARD}",
+        "source": "arena-ai-leaderboards",
         "snapshot_date": date,
-        "orgs": rows,
+        "categories": categories,
+        "data": data,
     }
 
 
 # --------------------------------------------------------------------------- #
 # Network
 # --------------------------------------------------------------------------- #
-def fetch_snapshot():
-    """Descarga el text.json del snapshot más reciente. Ante error: ({'models': []}, None)."""
+def fetch_snapshots():
+    """Descarga todas las categorías del snapshot más reciente.
+
+    Devuelve ({cid: {'models': [...]}}, date). Ante fallo de red total: ({}, None).
+    Las categorías que fallen individualmente quedan como {'models': []}.
+    """
     try:
         listing = _http_get_json(API_DATA_URL)
         date = latest_date(listing)
-        if not date:
-            return {"models": []}, None
-        raw = _http_get_json(f"{RAW_BASE}/{date}/{LEADERBOARD}.json")
     except Exception as exc:  # noqa: BLE001 - degradar con gracia
-        print(f"WARN: no se pudo descargar el snapshot: {exc}", file=sys.stderr)
-        return {"models": []}, None
-    return normalize_snapshot(raw), date
+        print(f"WARN: no se pudo listar el snapshot: {exc}", file=sys.stderr)
+        return {}, None
+    if not date:
+        return {}, None
+
+    snapshots = {}
+    for cid, _ in CATEGORIES:
+        try:
+            raw = _http_get_json(f"{RAW_BASE}/{date}/{cid}.json")
+            snapshots[cid] = normalize_snapshot(raw)
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARN: categoría '{cid}' no disponible: {exc}", file=sys.stderr)
+            snapshots[cid] = {"models": []}
+    return snapshots, date
 
 
 # --------------------------------------------------------------------------- #
@@ -156,15 +193,24 @@ def fetch_snapshot():
 def main():
     orgs = load_json(ORGS_PATH, default={})
     previous = load_json(DATA_PATH, default=None)
-    snapshot, date = fetch_snapshot()
+    snapshots, date = fetch_snapshots()
 
-    for v in unmatched_vendors(snapshot, orgs):
-        print(f"UNMATCHED VENDOR (sin sede en orgs.json): {v}", file=sys.stderr)
+    # Reporta vendors sin sede (únicos en todas las categorías) para mantener orgs.json.
+    seen = set()
+    for snap in snapshots.values():
+        for v in unmatched_vendors(snap, orgs):
+            if v not in seen:
+                seen.add(v)
+                print(f"UNMATCHED VENDOR (sin sede en orgs.json): {v}", file=sys.stderr)
 
-    payload = build_payload(snapshot, orgs, previous=previous, date=date)
+    rows_by_cat = {cid: build_orgs(snap, orgs) for cid, snap in snapshots.items()}
+    payload = build_payload(rows_by_cat, date, previous=previous)
+
     with open(DATA_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
-    print(f"Escrito {DATA_PATH} con {len(payload['orgs'])} organizaciones (snapshot {date})")
+
+    counts = ", ".join(f"{c['id']}={c['count']}" for c in payload.get("categories", []))
+    print(f"Escrito {DATA_PATH} (snapshot {date}): {counts}")
 
 
 if __name__ == "__main__":

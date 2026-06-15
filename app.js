@@ -5,8 +5,10 @@
 const LICENSE_LABEL = { open: "Open source", proprietary: "Propietario" };
 
 const state = {
-  all: [],          // todos los orgs (ordenados por score desc)
-  rankByOrg: {},    // org -> ranking global (1-based)
+  byCategory: {},   // cid -> [orgs]
+  category: null,   // categoría activa
+  all: [],          // orgs de la categoría activa (ordenados por score desc)
+  rankByOrg: {},    // org -> ranking dentro de la categoría (1-based)
   filtered: [],     // resultado de aplicar filtros
   markers: {},      // org -> { marker, el }
   scoreRange: [0, 1],
@@ -57,6 +59,8 @@ function popupHtml(o) {
 
 /* ----------------------- MARKERS (proportional bubbles) ----------------------- */
 function buildMarkers() {
+  Object.values(state.markers).forEach((m) => m.marker.remove());
+  state.markers = {};
   state.all.forEach((o) => {
     const d = bubbleSize(o.score);
     const el = document.createElement("div");
@@ -187,6 +191,7 @@ function focusOrg(org) {
 let chart = null;
 function renderChart(orgs) {
   const el = document.getElementById("chart");
+  el.style.height = Math.max(360, orgs.length * 30) + "px";
   if (!chart) chart = echarts.init(el, null, { renderer: "canvas" });
   const data = [...orgs].sort((a, b) => a.score - b.score);
   const min = Math.min(...orgs.map((o) => o.score), 1200) - 20;
@@ -253,12 +258,37 @@ function applyFilters() {
 
 function populateCountryFilter(orgs) {
   const sel = document.getElementById("filter-country");
+  sel.innerHTML = '<option value="">Todos los países</option>';
   [...new Set(orgs.map((o) => o.country))].sort().forEach((c) => {
     const opt = document.createElement("option");
     opt.value = c;
     opt.textContent = c;
     sel.appendChild(opt);
   });
+}
+
+/* ----------------------- CATEGORY SWITCHING ----------------------- */
+function setCategory(cid) {
+  state.category = cid;
+  state.all = (state.byCategory[cid] || []).slice().sort((a, b) => b.score - a.score);
+  state.rankByOrg = {};
+  state.all.forEach((o, i) => (state.rankByOrg[o.org] = i + 1));
+  const scores = state.all.map((o) => o.score);
+  state.scoreRange = scores.length ? [Math.min(...scores), Math.max(...scores)] : [0, 1];
+
+  // Resetea filtros dependientes de la categoría (los países cambian).
+  state.filters.country = "";
+  populateCountryFilter(state.all);
+  buildMarkers();
+  applyFilters();
+}
+
+function populateCategorySelect(categories) {
+  const sel = document.getElementById("category-select");
+  sel.innerHTML = categories
+    .map((c) => `<option value="${c.id}">${c.label} (${c.count})</option>`)
+    .join("");
+  sel.addEventListener("change", (e) => setCategory(e.target.value));
 }
 
 function wireFilters() {
@@ -294,18 +324,15 @@ function wireFilters() {
 fetch("data/data.json")
   .then((r) => r.json())
   .then((data) => {
-    state.all = (data.orgs || []).slice().sort((a, b) => b.score - a.score);
-    state.all.forEach((o, i) => (state.rankByOrg[o.org] = i + 1));
-    const scores = state.all.map((o) => o.score);
-    state.scoreRange = [Math.min(...scores), Math.max(...scores)];
+    state.byCategory = data.data || {};
+    const categories = data.categories || [];
 
-    const date = (data.generated_at || "").slice(0, 10) || "?";
-    document.getElementById("updated").textContent = `${state.all.length} modelos · ${date}`;
+    const date = data.snapshot_date || (data.generated_at || "").slice(0, 10) || "?";
+    document.getElementById("updated").textContent = `Arena AI · ${date}`;
 
-    populateCountryFilter(state.all);
     wireFilters();
-    buildMarkers();
-    applyFilters();
+    populateCategorySelect(categories);
+    setCategory(categories[0] ? categories[0].id : Object.keys(state.byCategory)[0]);
   })
   .catch((e) => {
     document.getElementById("updated").textContent = "Error cargando datos";

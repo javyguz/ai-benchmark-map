@@ -10,9 +10,13 @@ Los scores vienen del leaderboard público **Arena AI** vía el repo
 que publica un snapshot diario en `data/<YYYY-MM-DD>/text.json` (categoría de modelos
 de texto). Cada entrada trae `model`, `vendor`, `license` y `score`.
 
-`scripts/build_data.py` busca el snapshot más reciente, toma el modelo de mayor score
-por vendor, y lo cruza con la tabla de sedes `data/orgs.json` (geografía + logo) para
-generar `data/data.json`, que es lo que consume la web.
+`scripts/build_data.py` busca el snapshot más reciente, y para **cada categoría**
+(texto, código, visión, documentos, búsqueda, texto→imagen, edición de imagen,
+texto→video, imagen→video, edición de video) toma el modelo de mayor score por vendor
+y lo cruza con la tabla de sedes `data/orgs.json` (geografía + logo). El resultado es
+`data/data.json` con la forma `{ categories: [...], data: { <cat>: [orgs] } }`, que la
+web consume con un selector de categoría. La categoría `agent` se excluye porque su
+leaderboard no expone scores Elo (`score: null`).
 
 ## Desarrollo local
 
