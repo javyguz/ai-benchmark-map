@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T00:46:41Z",
+  "generated_at": "2026-06-16T10:56:45Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-15",
+  "snapshot_date": "2026-06-16",
   "categories": [
     {
       "id": "text",
@@ -11,12 +11,12 @@
     {
       "id": "code",
       "label": "Código",
-      "count": 10
+      "count": 9
     },
     {
       "id": "vision",
       "label": "Visión",
-      "count": 12
+      "count": 11
     },
     {
       "id": "document",
@@ -151,7 +151,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64",
         "license": "proprietary",
         "model": "claude-fable-5",
-        "score": 1665,
+        "score": 1654,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -163,7 +163,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "qwen3.7-max-20260517",
-        "score": 1534,
+        "score": 1532,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -175,7 +175,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=z.ai&sz=64",
         "license": "open",
         "model": "glm-5.1",
-        "score": 1532,
+        "score": 1531,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -187,7 +187,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
         "license": "proprietary",
         "model": "minimax-m3",
-        "score": 1521,
+        "score": 1514,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -199,7 +199,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=moonshot.ai&sz=64",
         "license": "open",
         "model": "kimi-k2.6",
-        "score": 1515,
+        "score": 1513,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -211,7 +211,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=meta.com&sz=64",
         "license": "proprietary",
         "model": "muse-spark",
-        "score": 1508,
+        "score": 1507,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -223,7 +223,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3.5-flash",
-        "score": 1506,
+        "score": 1505,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -247,19 +247,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
         "license": "open",
         "model": "mimo-v2.5-pro",
-        "score": 1468,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
-        "org": "DeepSeek",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.2741,
-        "lon": 120.1551,
-        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
-        "license": "open",
-        "model": "deepseek-v4-pro-thinking",
-        "score": 1462,
+        "score": 1469,
         "source_url": "https://arena.ai/leaderboard/code"
       }
     ],
@@ -395,18 +383,6 @@
         "model": "glm-5v-turbo",
         "score": 1232,
         "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Baidu",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.915,
-        "lon": 116.404,
-        "logo": "https://www.google.com/s2/favicons?domain=baidu.com&sz=64",
-        "license": "proprietary",
-        "model": "ernie-5.0-preview-1220",
-        "score": 1219,
-        "source_url": "https://arena.ai/leaderboard/vision"
       }
     ],
     "document": [
@@ -517,7 +493,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64",
         "license": "proprietary",
         "model": "claude-opus-4-6-search",
-        "score": 1253,
+        "score": 1252,
         "source_url": "https://arena.ai/leaderboard/search"
       },
       {
@@ -553,7 +529,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3.1-pro-grounding",
-        "score": 1213,
+        "score": 1214,
         "source_url": "https://arena.ai/leaderboard/search"
       },
       {
@@ -565,7 +541,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-4.20-multi-agent-beta-0309",
-        "score": 1207,
+        "score": 1206,
         "source_url": "https://arena.ai/leaderboard/search"
       },
       {
