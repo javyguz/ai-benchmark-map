@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T10:08:21Z",
+  "generated_at": "2026-06-19T10:14:36Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-18",
+  "snapshot_date": "2026-06-19",
   "categories": [
     {
       "id": "text",
@@ -16,7 +16,7 @@
     {
       "id": "vision",
       "label": "Visión",
-      "count": 12
+      "count": 6
     },
     {
       "id": "document",
@@ -275,18 +275,6 @@
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
-        "org": "Meta",
-        "city": "Menlo Park",
-        "country": "USA",
-        "lat": 37.4848,
-        "lon": -122.1484,
-        "logo": "https://www.google.com/s2/favicons?domain=meta.com&sz=64",
-        "license": "proprietary",
-        "model": "muse-spark",
-        "score": 1507,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
         "org": "Google",
         "city": "Mountain View",
         "country": "USA",
@@ -308,6 +296,18 @@
         "license": "proprietary",
         "model": "gpt-5.5-xhigh (codex-harness)",
         "score": 1502,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
+        "org": "Xiaomi",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 40.041,
+        "lon": 116.27,
+        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
+        "license": "open",
+        "model": "mimo-v2.5-pro",
+        "score": 1470,
         "source_url": "https://arena.ai/leaderboard/code"
       }
     ],
@@ -382,78 +382,6 @@
         "license": "proprietary",
         "model": "qwen3.7-plus-preview",
         "score": 1263,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Bytedance",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.97,
-        "lon": 116.33,
-        "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
-        "license": "proprietary",
-        "model": "dola-seed-2.0-pro",
-        "score": 1259,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "xAI",
-        "city": "Palo Alto",
-        "country": "USA",
-        "lat": 37.4419,
-        "lon": -122.143,
-        "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
-        "license": "proprietary",
-        "model": "grok-4.20-beta-0309-reasoning",
-        "score": 1251,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "MiniMax",
-        "city": "Shanghai",
-        "country": "China",
-        "lat": 31.2304,
-        "lon": 121.4737,
-        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
-        "license": "proprietary",
-        "model": "minimax-m3",
-        "score": 1246,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Xiaomi",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 40.041,
-        "lon": 116.27,
-        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
-        "license": "open",
-        "model": "mimo-v2.5",
-        "score": 1237,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Z.ai",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.9042,
-        "lon": 116.4074,
-        "logo": "https://www.google.com/s2/favicons?domain=z.ai&sz=64",
-        "license": "proprietary",
-        "model": "glm-5v-turbo",
-        "score": 1232,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Baidu",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.915,
-        "lon": 116.404,
-        "logo": "https://www.google.com/s2/favicons?domain=baidu.com&sz=64",
-        "license": "proprietary",
-        "model": "ernie-5.0-preview-1220",
-        "score": 1219,
         "source_url": "https://arena.ai/leaderboard/vision"
       }
     ],
@@ -769,7 +697,7 @@
         "lat": 22.5431,
         "lon": 114.0579,
         "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
-        "license": null,
+        "license": "open",
         "model": "hunyuan-image-3.0",
         "score": 1151,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
