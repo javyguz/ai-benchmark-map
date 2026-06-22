@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-21T09:38:14Z",
+  "generated_at": "2026-06-22T11:37:31Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-21",
+  "snapshot_date": "2026-06-22",
   "categories": [
     {
       "id": "text",
       "label": "Texto",
-      "count": 9
+      "count": 13
     },
     {
       "id": "code",
@@ -163,6 +163,54 @@
         "model": "mimo-v2.5-pro",
         "score": 1466,
         "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Moonshot",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.99,
+        "lon": 116.3,
+        "logo": "https://www.google.com/s2/favicons?domain=moonshot.ai&sz=64",
+        "license": "open",
+        "model": "kimi-k2.6",
+        "score": 1460,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "DeepSeek",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.2741,
+        "lon": 120.1551,
+        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+        "license": "open",
+        "model": "deepseek-v4-pro-thinking",
+        "score": 1458,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Bytedance",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.97,
+        "lon": 116.33,
+        "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
+        "license": "proprietary",
+        "model": "dola-seed-2.0-pro",
+        "score": 1455,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "MiniMax",
+        "city": "Shanghai",
+        "country": "China",
+        "lat": 31.2304,
+        "lon": 121.4737,
+        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
+        "license": "proprietary",
+        "model": "minimax-m3",
+        "score": 1448,
+        "source_url": "https://arena.ai/leaderboard/text"
       }
     ],
     "code": [
@@ -187,7 +235,19 @@
         "logo": "https://www.google.com/s2/favicons?domain=z.ai&sz=64",
         "license": "open",
         "model": "glm-5.2 (max)",
-        "score": 1595,
+        "score": 1593,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
+        "org": "Bytedance",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.97,
+        "lon": 116.33,
+        "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
+        "license": "proprietary",
+        "model": "seed-2.1-pro-preview",
+        "score": 1539,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -199,7 +259,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "qwen3.7-max-20260517",
-        "score": 1531,
+        "score": 1530,
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
@@ -215,18 +275,6 @@
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
-        "org": "MiniMax",
-        "city": "Shanghai",
-        "country": "China",
-        "lat": 31.2304,
-        "lon": 121.4737,
-        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
-        "license": "proprietary",
-        "model": "minimax-m3",
-        "score": 1511,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
         "org": "Google",
         "city": "Mountain View",
         "country": "USA",
@@ -239,6 +287,18 @@
         "source_url": "https://arena.ai/leaderboard/code"
       },
       {
+        "org": "MiniMax",
+        "city": "Shanghai",
+        "country": "China",
+        "lat": 31.2304,
+        "lon": 121.4737,
+        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
+        "license": "proprietary",
+        "model": "minimax-m3",
+        "score": 1505,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
         "org": "OpenAI",
         "city": "San Francisco",
         "country": "USA",
@@ -248,18 +308,6 @@
         "license": "proprietary",
         "model": "gpt-5.5-xhigh (codex-harness)",
         "score": 1502,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
-        "org": "Xiaomi",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 40.041,
-        "lon": 116.27,
-        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
-        "license": "open",
-        "model": "mimo-v2.5-pro",
-        "score": 1470,
         "source_url": "https://arena.ai/leaderboard/code"
       }
     ],
@@ -721,7 +769,7 @@
         "lat": 22.5431,
         "lon": 114.0579,
         "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
-        "license": null,
+        "license": "open",
         "model": "hunyuan-image-3.0",
         "score": 1151,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
