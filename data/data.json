@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-23T09:24:01Z",
+  "generated_at": "2026-06-24T08:54:45Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-23",
+  "snapshot_date": "2026-06-24",
   "categories": [
     {
       "id": "text",
       "label": "Texto",
-      "count": 7
+      "count": 13
     },
     {
       "id": "code",
@@ -138,6 +138,78 @@
         "license": "proprietary",
         "model": "grok-4.20-beta-0309-reasoning",
         "score": 1474,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Baidu",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.915,
+        "lon": 116.404,
+        "logo": "https://www.google.com/s2/favicons?domain=baidu.com&sz=64",
+        "license": "proprietary",
+        "model": "ernie-5.1",
+        "score": 1468,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Xiaomi",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 40.041,
+        "lon": 116.27,
+        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
+        "license": "open",
+        "model": "mimo-v2.5-pro",
+        "score": 1466,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Moonshot",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.99,
+        "lon": 116.3,
+        "logo": "https://www.google.com/s2/favicons?domain=moonshot.ai&sz=64",
+        "license": "open",
+        "model": "kimi-k2.6",
+        "score": 1460,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "DeepSeek",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.2741,
+        "lon": 120.1551,
+        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+        "license": "open",
+        "model": "deepseek-v4-pro-thinking",
+        "score": 1458,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "Bytedance",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 39.97,
+        "lon": 116.33,
+        "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
+        "license": "proprietary",
+        "model": "dola-seed-2.0-pro",
+        "score": 1455,
+        "source_url": "https://arena.ai/leaderboard/text"
+      },
+      {
+        "org": "MiniMax",
+        "city": "Shanghai",
+        "country": "China",
+        "lat": 31.2304,
+        "lon": 121.4737,
+        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
+        "license": "proprietary",
+        "model": "minimax-m3",
+        "score": 1448,
         "source_url": "https://arena.ai/leaderboard/text"
       }
     ],
@@ -1105,18 +1177,6 @@
     ],
     "image-to-video": [
       {
-        "org": "Google",
-        "city": "Mountain View",
-        "country": "USA",
-        "lat": 37.422,
-        "lon": -122.084,
-        "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
-        "license": "proprietary",
-        "model": "gemini-omni-flash",
-        "score": 1475,
-        "source_url": "https://arena.ai/leaderboard/image-to-video"
-      },
-      {
         "org": "Bytedance",
         "city": "Beijing",
         "country": "China",
@@ -1125,7 +1185,19 @@
         "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
         "license": "proprietary",
         "model": "dreamina-seedance-2.0-720p",
-        "score": 1475,
+        "score": 1474,
+        "source_url": "https://arena.ai/leaderboard/image-to-video"
+      },
+      {
+        "org": "Google",
+        "city": "Mountain View",
+        "country": "USA",
+        "lat": 37.422,
+        "lon": -122.084,
+        "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
+        "license": "proprietary",
+        "model": "gemini-omni-flash",
+        "score": 1469,
         "source_url": "https://arena.ai/leaderboard/image-to-video"
       },
       {
@@ -1137,7 +1209,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-imagine-video-1.5-preview-720p",
-        "score": 1467,
+        "score": 1466,
         "source_url": "https://arena.ai/leaderboard/image-to-video"
       },
       {
@@ -1149,7 +1221,19 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "happyhorse-1.0",
-        "score": 1446,
+        "score": 1444,
+        "source_url": "https://arena.ai/leaderboard/image-to-video"
+      },
+      {
+        "org": "Alibaba",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.25,
+        "lon": 120.16,
+        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+        "license": "proprietary",
+        "model": "wan2.7-i2v",
+        "score": 1434,
         "source_url": "https://arena.ai/leaderboard/image-to-video"
       },
       {
@@ -1173,19 +1257,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=klingai.com&sz=64",
         "license": "proprietary",
         "model": "kling-v3-pro",
-        "score": 1359,
-        "source_url": "https://arena.ai/leaderboard/image-to-video"
-      },
-      {
-        "org": "Alibaba",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.25,
-        "lon": 120.16,
-        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
-        "license": "proprietary",
-        "model": "wan2.5-i2v-preview",
-        "score": 1321,
+        "score": 1360,
         "source_url": "https://arena.ai/leaderboard/image-to-video"
       },
       {
