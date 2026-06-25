@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-24T08:54:45Z",
+  "generated_at": "2026-06-25T08:49:30Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-24",
+  "snapshot_date": "2026-06-25",
   "categories": [
     {
       "id": "text",
@@ -11,7 +11,7 @@
     {
       "id": "code",
       "label": "Código",
-      "count": 8
+      "count": 11
     },
     {
       "id": "vision",
@@ -308,6 +308,42 @@
         "license": "proprietary",
         "model": "gpt-5.5-xhigh (codex-harness)",
         "score": 1502,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
+        "org": "Xiaomi",
+        "city": "Beijing",
+        "country": "China",
+        "lat": 40.041,
+        "lon": 116.27,
+        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
+        "license": "open",
+        "model": "mimo-v2.5-pro",
+        "score": 1471,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
+        "org": "DeepSeek",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.2741,
+        "lon": 120.1551,
+        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+        "license": "open",
+        "model": "deepseek-v4-pro-thinking",
+        "score": 1458,
+        "source_url": "https://arena.ai/leaderboard/code"
+      },
+      {
+        "org": "xAI",
+        "city": "Palo Alto",
+        "country": "USA",
+        "lat": 37.4419,
+        "lon": -122.143,
+        "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
+        "license": "proprietary",
+        "model": "grok-4.20-beta-0309-reasoning",
+        "score": 1385,
         "source_url": "https://arena.ai/leaderboard/code"
       }
     ],
