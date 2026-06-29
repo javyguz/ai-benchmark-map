@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-28T08:41:37Z",
+  "generated_at": "2026-06-29T10:25:18Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-25",
+  "snapshot_date": "2026-06-29",
   "categories": [
     {
       "id": "text",
       "label": "Texto",
-      "count": 13
+      "count": 7
     },
     {
       "id": "code",
       "label": "Código",
-      "count": 11
+      "count": 8
     },
     {
       "id": "vision",
@@ -105,15 +105,15 @@
         "source_url": "https://arena.ai/leaderboard/text"
       },
       {
-        "org": "Z.ai",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.9042,
-        "lon": 116.4074,
-        "logo": "https://www.google.com/s2/favicons?domain=z.ai&sz=64",
-        "license": "open",
-        "model": "glm-5.1",
-        "score": 1475,
+        "org": "xAI",
+        "city": "Palo Alto",
+        "country": "USA",
+        "lat": 37.4419,
+        "lon": -122.143,
+        "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
+        "license": "proprietary",
+        "model": "grok-4.20-beta-0309-reasoning",
+        "score": 1476,
         "source_url": "https://arena.ai/leaderboard/text"
       },
       {
@@ -129,87 +129,15 @@
         "source_url": "https://arena.ai/leaderboard/text"
       },
       {
-        "org": "xAI",
-        "city": "Palo Alto",
-        "country": "USA",
-        "lat": 37.4419,
-        "lon": -122.143,
-        "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
-        "license": "proprietary",
-        "model": "grok-4.20-beta-0309-reasoning",
-        "score": 1474,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "Baidu",
+        "org": "Z.ai",
         "city": "Beijing",
         "country": "China",
-        "lat": 39.915,
-        "lon": 116.404,
-        "logo": "https://www.google.com/s2/favicons?domain=baidu.com&sz=64",
-        "license": "proprietary",
-        "model": "ernie-5.1",
-        "score": 1468,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "Xiaomi",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 40.041,
-        "lon": 116.27,
-        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
+        "lat": 39.9042,
+        "lon": 116.4074,
+        "logo": "https://www.google.com/s2/favicons?domain=z.ai&sz=64",
         "license": "open",
-        "model": "mimo-v2.5-pro",
-        "score": 1466,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "Moonshot",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.99,
-        "lon": 116.3,
-        "logo": "https://www.google.com/s2/favicons?domain=moonshot.ai&sz=64",
-        "license": "open",
-        "model": "kimi-k2.6",
-        "score": 1460,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "DeepSeek",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.2741,
-        "lon": 120.1551,
-        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
-        "license": "open",
-        "model": "deepseek-v4-pro-thinking",
-        "score": 1458,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "Bytedance",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 39.97,
-        "lon": 116.33,
-        "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
-        "license": "proprietary",
-        "model": "dola-seed-2.0-pro",
-        "score": 1455,
-        "source_url": "https://arena.ai/leaderboard/text"
-      },
-      {
-        "org": "MiniMax",
-        "city": "Shanghai",
-        "country": "China",
-        "lat": 31.2304,
-        "lon": 121.4737,
-        "logo": "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
-        "license": "proprietary",
-        "model": "minimax-m3",
-        "score": 1448,
+        "model": "glm-5.1",
+        "score": 1473,
         "source_url": "https://arena.ai/leaderboard/text"
       }
     ],
@@ -309,42 +237,6 @@
         "model": "gpt-5.5-xhigh (codex-harness)",
         "score": 1502,
         "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
-        "org": "Xiaomi",
-        "city": "Beijing",
-        "country": "China",
-        "lat": 40.041,
-        "lon": 116.27,
-        "logo": "https://www.google.com/s2/favicons?domain=mi.com&sz=64",
-        "license": "open",
-        "model": "mimo-v2.5-pro",
-        "score": 1471,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
-        "org": "DeepSeek",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.2741,
-        "lon": 120.1551,
-        "logo": "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
-        "license": "open",
-        "model": "deepseek-v4-pro-thinking",
-        "score": 1458,
-        "source_url": "https://arena.ai/leaderboard/code"
-      },
-      {
-        "org": "xAI",
-        "city": "Palo Alto",
-        "country": "USA",
-        "lat": 37.4419,
-        "lon": -122.143,
-        "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
-        "license": "proprietary",
-        "model": "grok-4.20-beta-0309-reasoning",
-        "score": 1385,
-        "source_url": "https://arena.ai/leaderboard/code"
       }
     ],
     "vision": [
@@ -356,8 +248,8 @@
         "lon": -122.4194,
         "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64",
         "license": "proprietary",
-        "model": "claude-opus-4-7-thinking",
-        "score": 1309,
+        "model": "claude-fable-5",
+        "score": 1311,
         "source_url": "https://arena.ai/leaderboard/vision"
       },
       {
@@ -369,7 +261,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=meta.com&sz=64",
         "license": "proprietary",
         "model": "muse-spark",
-        "score": 1295,
+        "score": 1294,
         "source_url": "https://arena.ai/leaderboard/vision"
       },
       {
@@ -381,7 +273,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3-pro",
-        "score": 1290,
+        "score": 1289,
         "source_url": "https://arena.ai/leaderboard/vision"
       },
       {
@@ -392,8 +284,20 @@
         "lon": -122.417,
         "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
         "license": "proprietary",
-        "model": "gpt-5.5-high",
-        "score": 1284,
+        "model": "gpt-5.5",
+        "score": 1285,
+        "source_url": "https://arena.ai/leaderboard/vision"
+      },
+      {
+        "org": "Alibaba",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.25,
+        "lon": 120.16,
+        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+        "license": "proprietary",
+        "model": "qwen3.7-plus",
+        "score": 1266,
         "source_url": "https://arena.ai/leaderboard/vision"
       },
       {
@@ -405,19 +309,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=moonshot.ai&sz=64",
         "license": "open",
         "model": "kimi-k2.6",
-        "score": 1264,
-        "source_url": "https://arena.ai/leaderboard/vision"
-      },
-      {
-        "org": "Alibaba",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.25,
-        "lon": 120.16,
-        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
-        "license": "proprietary",
-        "model": "qwen3.7-plus-preview",
-        "score": 1263,
+        "score": 1265,
         "source_url": "https://arena.ai/leaderboard/vision"
       }
     ],
@@ -615,7 +507,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
         "license": "proprietary",
         "model": "gpt-image-2 (medium)",
-        "score": 1385,
+        "score": 1386,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -627,7 +519,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=reve.art&sz=64",
         "license": "proprietary",
         "model": "reve-2.0",
-        "score": 1273,
+        "score": 1275,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -651,7 +543,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=64",
         "license": "proprietary",
         "model": "mai-image-2.5",
-        "score": 1253,
+        "score": 1256,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -663,7 +555,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-imagine-image-quality",
-        "score": 1234,
+        "score": 1232,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -675,7 +567,19 @@
         "logo": "https://www.google.com/s2/favicons?domain=ideogram.ai&sz=64",
         "license": "open",
         "model": "ideogram-4.0-quality",
-        "score": 1204,
+        "score": 1209,
+        "source_url": "https://arena.ai/leaderboard/text-to-image"
+      },
+      {
+        "org": "Alibaba",
+        "city": "Hangzhou",
+        "country": "China",
+        "lat": 30.25,
+        "lon": 120.16,
+        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+        "license": "proprietary",
+        "model": "qwen-image-2.0-pro-2026-06-22",
+        "score": 1193,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -687,7 +591,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=lumalabs.ai&sz=64",
         "license": "proprietary",
         "model": "uni-1.1-max",
-        "score": 1191,
+        "score": 1188,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -703,18 +607,6 @@
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
-        "org": "Alibaba",
-        "city": "Hangzhou",
-        "country": "China",
-        "lat": 30.25,
-        "lon": 120.16,
-        "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
-        "license": "proprietary",
-        "model": "qwen-image-2.0-pro-2026-04-22",
-        "score": 1169,
-        "source_url": "https://arena.ai/leaderboard/text-to-image"
-      },
-      {
         "org": "Black Forest Labs",
         "city": "Freiburg",
         "country": "Germany",
@@ -723,7 +615,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=bfl.ai&sz=64",
         "license": "proprietary",
         "model": "flux-2-max",
-        "score": 1163,
+        "score": 1162,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -733,7 +625,7 @@
         "lat": 22.5431,
         "lon": 114.0579,
         "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
-        "license": "open",
+        "license": "proprietary",
         "model": "hunyuan-image-3.0",
         "score": 1151,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
@@ -759,7 +651,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=hidream.ai&sz=64",
         "license": "open",
         "model": "hidream-o1-image",
-        "score": 1124,
+        "score": 1123,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -771,7 +663,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=krea.ai&sz=64",
         "license": "proprietary",
         "model": "krea-2-medium",
-        "score": 1121,
+        "score": 1119,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -783,7 +675,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=64",
         "license": "open",
         "model": "Cosmos3-Super-Text2Image",
-        "score": 1062,
+        "score": 1056,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -795,7 +687,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=pruna.ai&sz=64",
         "license": "proprietary",
         "model": "p-image",
-        "score": 1033,
+        "score": 1034,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -869,7 +761,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=64",
         "license": "proprietary",
         "model": "mai-image-2.5",
-        "score": 1401,
+        "score": 1402,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -881,7 +773,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-imagine-image-quality (20260519)",
-        "score": 1388,
+        "score": 1389,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -893,7 +785,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-        "score": 1388,
+        "score": 1389,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -905,7 +797,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=reve.art&sz=64",
         "license": "proprietary",
         "model": "reve-2.0",
-        "score": 1356,
+        "score": 1359,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -917,7 +809,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=lumalabs.ai&sz=64",
         "license": "proprietary",
         "model": "uni-1.1-max",
-        "score": 1335,
+        "score": 1334,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -928,7 +820,19 @@
         "lon": 120.16,
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
-        "model": "wan2.7-image-pro",
+        "model": "qwen-image-2.0-pro-2026-06-22",
+        "score": 1320,
+        "source_url": "https://arena.ai/leaderboard/image-edit"
+      },
+      {
+        "org": "Tencent",
+        "city": "Shenzhen",
+        "country": "China",
+        "lat": 22.5431,
+        "lon": 114.0579,
+        "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
+        "license": null,
+        "model": "hunyuan-image-3.0-instruct",
         "score": 1302,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
@@ -941,19 +845,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
         "license": "proprietary",
         "model": "seedream-4.5",
-        "score": 1300,
-        "source_url": "https://arena.ai/leaderboard/image-edit"
-      },
-      {
-        "org": "Tencent",
-        "city": "Shenzhen",
-        "country": "China",
-        "lat": 22.5431,
-        "lon": 114.0579,
-        "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
-        "license": null,
-        "model": "hunyuan-image-3.0-instruct",
-        "score": 1300,
+        "score": 1301,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -965,7 +857,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=bfl.ai&sz=64",
         "license": "proprietary",
         "model": "flux-2-max",
-        "score": 1261,
+        "score": 1262,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -977,7 +869,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=klingai.com&sz=64",
         "license": "proprietary",
         "model": "kling-image-o1",
-        "score": 1250,
+        "score": 1251,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -989,7 +881,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=pruna.ai&sz=64",
         "license": "proprietary",
         "model": "p-image-edit",
-        "score": 1210,
+        "score": 1211,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
