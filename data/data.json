@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T08:58:13Z",
+  "generated_at": "2026-07-01T09:31:14Z",
   "source": "arena-ai-leaderboards",
-  "snapshot_date": "2026-06-30",
+  "snapshot_date": "2026-07-01",
   "categories": [
     {
       "id": "text",
@@ -51,7 +51,7 @@
     {
       "id": "video-edit",
       "label": "Edición de video",
-      "count": 5
+      "count": 6
     }
   ],
   "data": {
@@ -507,7 +507,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
         "license": "proprietary",
         "model": "gpt-image-2 (medium)",
-        "score": 1386,
+        "score": 1387,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -519,7 +519,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=reve.art&sz=64",
         "license": "proprietary",
         "model": "reve-2.0",
-        "score": 1275,
+        "score": 1273,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -531,7 +531,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3.1-flash-image-preview (nano-banana-2) [web-search]",
-        "score": 1269,
+        "score": 1270,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -543,7 +543,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=64",
         "license": "proprietary",
         "model": "mai-image-2.5",
-        "score": 1256,
+        "score": 1257,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -555,7 +555,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-imagine-image-quality",
-        "score": 1232,
+        "score": 1231,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -571,6 +571,18 @@
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
+        "org": "Luma AI",
+        "city": "San Francisco",
+        "country": "USA",
+        "lat": 37.7785,
+        "lon": -122.4056,
+        "logo": "https://www.google.com/s2/favicons?domain=lumalabs.ai&sz=64",
+        "license": "proprietary",
+        "model": "uni-1.1",
+        "score": 1193,
+        "source_url": "https://arena.ai/leaderboard/text-to-image"
+      },
+      {
         "org": "Alibaba",
         "city": "Hangzhou",
         "country": "China",
@@ -579,19 +591,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "qwen-image-2.0-pro-2026-06-22",
-        "score": 1193,
-        "source_url": "https://arena.ai/leaderboard/text-to-image"
-      },
-      {
-        "org": "Luma AI",
-        "city": "San Francisco",
-        "country": "USA",
-        "lat": 37.7785,
-        "lon": -122.4056,
-        "logo": "https://www.google.com/s2/favicons?domain=lumalabs.ai&sz=64",
-        "license": "proprietary",
-        "model": "uni-1.1-max",
-        "score": 1188,
+        "score": 1190,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -639,7 +639,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
         "license": "proprietary",
         "model": "seedream-4.5",
-        "score": 1145,
+        "score": 1146,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -651,7 +651,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=hidream.ai&sz=64",
         "license": "open",
         "model": "hidream-o1-image",
-        "score": 1123,
+        "score": 1121,
         "source_url": "https://arena.ai/leaderboard/text-to-image"
       },
       {
@@ -749,7 +749,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=openai.com&sz=64",
         "license": "proprietary",
         "model": "gpt-image-2 (medium)",
-        "score": 1465,
+        "score": 1464,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -761,7 +761,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=64",
         "license": "proprietary",
         "model": "mai-image-2.5",
-        "score": 1402,
+        "score": 1403,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -785,7 +785,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
         "license": "proprietary",
         "model": "gemini-3-pro-image-preview-2k (nano-banana-pro)",
-        "score": 1389,
+        "score": 1388,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -797,7 +797,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=reve.art&sz=64",
         "license": "proprietary",
         "model": "reve-2.0",
-        "score": 1359,
+        "score": 1357,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -821,7 +821,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "qwen-image-2.0-pro-2026-06-22",
-        "score": 1320,
+        "score": 1319,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -833,7 +833,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=tencent.com&sz=64",
         "license": null,
         "model": "hunyuan-image-3.0-instruct",
-        "score": 1302,
+        "score": 1301,
         "source_url": "https://arena.ai/leaderboard/image-edit"
       },
       {
@@ -1295,7 +1295,19 @@
         "logo": "https://www.google.com/s2/favicons?domain=bytedance.com&sz=64",
         "license": "proprietary",
         "model": "dreamina-seedance-2.0-720p",
-        "score": 1379,
+        "score": 1377,
+        "source_url": "https://arena.ai/leaderboard/video-edit"
+      },
+      {
+        "org": "Google",
+        "city": "Mountain View",
+        "country": "USA",
+        "lat": 37.422,
+        "lon": -122.084,
+        "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=64",
+        "license": "proprietary",
+        "model": "gemini-omni-flash",
+        "score": 1347,
         "source_url": "https://arena.ai/leaderboard/video-edit"
       },
       {
@@ -1307,7 +1319,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
         "license": "proprietary",
         "model": "happyhorse-1.0",
-        "score": 1319,
+        "score": 1308,
         "source_url": "https://arena.ai/leaderboard/video-edit"
       },
       {
@@ -1319,7 +1331,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=x.ai&sz=64",
         "license": "proprietary",
         "model": "grok-imagine-video",
-        "score": 1265,
+        "score": 1264,
         "source_url": "https://arena.ai/leaderboard/video-edit"
       },
       {
@@ -1331,7 +1343,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=klingai.com&sz=64",
         "license": "proprietary",
         "model": "kling-o3-pro",
-        "score": 1247,
+        "score": 1251,
         "source_url": "https://arena.ai/leaderboard/video-edit"
       },
       {
@@ -1343,7 +1355,7 @@
         "logo": "https://www.google.com/s2/favicons?domain=runwayml.com&sz=64",
         "license": "proprietary",
         "model": "runway-gen4-aleph",
-        "score": 1204,
+        "score": 1194,
         "source_url": "https://arena.ai/leaderboard/video-edit"
       }
     ]
